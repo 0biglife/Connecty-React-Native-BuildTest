@@ -1,13 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import React, {useState} from 'react';
+import { StyleSheet, View, Text } from 'react-native';
+import MyButton from './MyButton';
 
 export default function App() {
+    const [addition, setAddition] = useState(0);
+    const [multiple, setmultiple] = useState(1);
+
     return (
     <View style={styles.container}>
-        <Text style={{color: 'blue'}}>Connecty App!</Text>
-        <StatusBar style="auto" />
-        <Button title="Button" onPress={() => alert('Tapped!!')} />
+        <Text style={{fontSize: 20}}>{addition}</Text>
+        <Text style={{fontSize: 20}}>{multiple}</Text>
+        <MyButton title="Addition" onPress={()=> setAddition(addition + 2)} />
+        <MyButton title="Multiple" onPress={()=> setmultiple(multiple * 2)} />
     </View>
     );
 }
@@ -18,5 +22,5 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-        },
+    },
 });
